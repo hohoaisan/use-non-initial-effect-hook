@@ -1,5 +1,5 @@
 import React from "react";
-import { render, wait } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import App from "./App";
 
 test("Test hook", () => {
@@ -8,7 +8,7 @@ test("Test hook", () => {
 	const counter = getByTestId("pressed");
 	expect(counter).toHaveTextContent("The button has not been pressed!");
 	button.click();
-	wait(
+	waitFor(
 		() => {
 			expect(counter).toHaveTextContent("The button has been pressed!");
 		},
